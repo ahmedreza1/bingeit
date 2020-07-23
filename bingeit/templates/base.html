@@ -1,120 +1,120 @@
 {% load staticfiles %}
 {% load static %}
 <html>
-  <head>
-    <title>Corona Help Finder - Find help, tips to be safe, information and labs that do tests for Corona (covid-19) near you.</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="author" content="colorlib.com">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+	<head>
+		<title>Corona Help Finder - Find help, tips to be safe, information and labs that do tests for Corona (covid-19) near you.</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="author" content="colorlib.com">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+		<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+		<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="/static/css/main.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/css/style.css">
-  </head>
-  <body>
-    <header class="header">
-    <nav class="navbar navbar-expand-lg fixed-top py-3">
-      <div class="container"><a href="/" class="navbar-brand text-uppercase font-weight-bold">Covid Help Finder</a>
-        <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
-        <div id="navbarSupportedContent" class="collapse navbar-collapse">
-          <ul class="navbar-nav ml-auto">
-                      <li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
-                      <li class="nav-item"><a href="/covid/fakecheck/" class="nav-link text-uppercase font-weight-bold">FakeCheck</a></li>
-                      <li class="nav-item"><a href="/covid/tips" class="nav-link text-uppercase font-weight-bold">Advice</a></li>
-                      <li class="nav-item"><a href="/covid/info" class="nav-link text-uppercase font-weight-bold">Trustful Informations</a></li>
-                      <li class="nav-item"><a href="/covid/dashboard" class="nav-link text-uppercase font-weight-bold">Dashboard</a></li>
-                      {% if user.is_authenticated %}
-                      <li class="nav-item"><a href="/covid/myprofile/{{ user.myprofile.id }}" class="nav-link text-uppercase font-weight-bold">My Profile</a></li>
-                      <li class="nav-item"><a href="/covid/mypost/" class="nav-link text-uppercase font-weight-bold">My Work</a></li>
-                      <li class="nav-item"><a href="/accounts/logout/" class="nav-link text-uppercase font-weight-bold">Logout</a></li>
-                      {% else %}
-                      <li class="nav-item"><a href="/covid/myprofile" class="nav-link text-uppercase font-weight-bold">Donate</a></li>
-                      {% endif %}
-                  </ul>
-              </div>
-          </div>
-      </nav>
-  </header>
+		<link href="https://fonts.googleapis.com/css?family=Poppins" rel="stylesheet" />
+		<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+		<link href="/static/css/main.css" rel="stylesheet" />
+		<link rel="stylesheet" href="/static/css/style.css">
+	</head>
+	<body>
+		<header class="header">
+		<nav class="navbar navbar-expand-lg fixed-top py-3">
+			<div class="container"><a href="/" class="navbar-brand text-uppercase font-weight-bold">Covid Help Finder</a>
+				<button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right"><i class="fa fa-bars"></i></button>
+				<div id="navbarSupportedContent" class="collapse navbar-collapse">
+					<ul class="navbar-nav ml-auto">
+											<li class="nav-item active"><a href="/" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only">(current)</span></a></li>
+											<li class="nav-item"><a href="/covid/fakecheck/" class="nav-link text-uppercase font-weight-bold">FakeCheck</a></li>
+											<li class="nav-item"><a href="/covid/tips" class="nav-link text-uppercase font-weight-bold">Advice</a></li>
+											<li class="nav-item"><a href="/covid/info" class="nav-link text-uppercase font-weight-bold">Trustful Informations</a></li>
+											<li class="nav-item"><a href="/covid/dashboard" class="nav-link text-uppercase font-weight-bold">Dashboard</a></li>
+											{% if user.is_authenticated %}
+											<li class="nav-item"><a href="/covid/myprofile/{{ user.myprofile.id }}" class="nav-link text-uppercase font-weight-bold">My Profile</a></li>
+											<li class="nav-item"><a href="/covid/mypost/" class="nav-link text-uppercase font-weight-bold">My Work</a></li>
+											<li class="nav-item"><a href="/accounts/logout/" class="nav-link text-uppercase font-weight-bold">Logout</a></li>
+											{% else %}
+											<li class="nav-item"><a href="/covid/myprofile" class="nav-link text-uppercase font-weight-bold">Donate</a></li>
+											{% endif %}
+									</ul>
+							</div>
+					</div>
+			</nav>
+	</header>
 
 
 {% block content %}
 {% endblock %}
 <!--Footer-->
-  <footer class="page-footer text-center text-md-left pt-4" style="background-color: #f2f2f2;">
+	<footer class="page-footer text-center text-md-left pt-4" style="background-color: #f2f2f2;">
 
-    <!--Footer Links-->
-    <div class="container-fluid">
-      <div class="row">
+		<!--Footer Links-->
+		<div class="container-fluid">
+			<div class="row">
 
-        <!--First column-->
-        <div class="col-md-3">
-          <h5 class="text-uppercase font-weight-bold mb-4">Corona Help Finder</h5>
-          <p>The platfom is made to help people in various states of India to find help, Labs and hospitals that test for Corona or covid19 virus, check the fake news that's in circulation about the virus, donate in a decentralized way and find tips on being safe.</p>
-        </div>
-        <!--/.First column-->
+				<!--First column-->
+				<div class="col-md-3">
+					<h5 class="text-uppercase font-weight-bold mb-4">Corona Help Finder</h5>
+					<p>The platfom is made to help people in various states of India to find help, Labs and hospitals that test for Corona or covid19 virus, check the fake news that's in circulation about the virus, donate in a decentralized way and find tips on being safe.</p>
+				</div>
+				<!--/.First column-->
 
-        <hr class="w-100 clearfix d-md-none">
+				<hr class="w-100 clearfix d-md-none">
 
 
-        <!--Third column-->
-        <div class="col-md-2 mx-auto">
-          <h5 class="text-uppercase font-weight-bold mb-4">Links</h5>
-          <ul class="list-unstyled">
-            <li><a href="/">Home</a></li>
-            <li><a href="/covid/tips">Tips & Advice</a></li>
-            <li><a href="/covid/info">Trustful Informations</a></li>
-            <li><a href="/covid/myprofile">Donate to Orgs</a></li>
-          </ul>
-        </div>
+				<!--Third column-->
+				<div class="col-md-2 mx-auto">
+					<h5 class="text-uppercase font-weight-bold mb-4">Links</h5>
+					<ul class="list-unstyled">
+						<li><a href="/">Home</a></li>
+						<li><a href="/covid/tips">Tips & Advice</a></li>
+						<li><a href="/covid/info">Trustful Informations</a></li>
+						<li><a href="/covid/myprofile">Donate to Orgs</a></li>
+					</ul>
+				</div>
 
-      </div>
-    </div>
-    <!--/.Footer Links-->
+			</div>
+		</div>
+		<!--/.Footer Links-->
 
-    <hr>
+		<hr>
 
-    <!--Call to action-->
-    <div class="call-to-action text-center my-4">
-      <ul class="list-unstyled list-inline">
-        {% if user.is_authenticated %}
-        <li class="list-inline-item">
-          <h5>Logout for now.</h5>
-        </li>
-        <li class="list-inline-item"><a href="/accounts/logout" class="btn btn-primary">Logout!</a></li>
-        {% else %}
-        <li class="list-inline-item">
-          <h5>Login as organization.</h5>
-        </li>
-        <li class="list-inline-item"><a href="/accounts/login" class="btn btn-primary">Log in!</a></li>
-        {% endif %}
-      </ul>
-    </div>
-    <!--/.Call to action-->
+		<!--Call to action-->
+		<div class="call-to-action text-center my-4">
+			<ul class="list-unstyled list-inline">
+				{% if user.is_authenticated %}
+				<li class="list-inline-item">
+					<h5>Logout for now.</h5>
+				</li>
+				<li class="list-inline-item"><a href="/accounts/logout" class="btn btn-primary">Logout!</a></li>
+				{% else %}
+				<li class="list-inline-item">
+					<h5>Login as organization.</h5>
+				</li>
+				<li class="list-inline-item"><a href="/accounts/login" class="btn btn-primary">Log in!</a></li>
+				{% endif %}
+			</ul>
+		</div>
+		<!--/.Call to action-->
 
-    <hr>
+		<hr>
 
-    <!--Copyright-->
-    <div class="footer-copyright py-3 text-center">
-      <div class="container-fluid">
-        © 2020 Copyright: <a href="https://about.me/ahmed_reza"> Ahmed Reza </a>
+		<!--Copyright-->
+		<div class="footer-copyright py-3 text-center">
+			<div class="container-fluid">
+				© 2020 Copyright: <a href="https://about.me/ahmed_reza"> Ahmed Reza </a>
 
-      </div>
-    </div>
-    <!--/.Copyright-->
+			</div>
+		</div>
+		<!--/.Copyright-->
 
-  </footer>
-  <!--/.Footer-->
+	</footer>
+	<!--/.Footer-->
 <script src="/static/js/choices.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/4.2.2/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script>
-  </body>
+	</body>
 
 </html>
 

@@ -4,7 +4,7 @@ from django.views.generic.base import TemplateView
 from django.utils.decorators import method_decorator
 from django.contrib.auth.decorators import login_required
 from django.views.generic.list import ListView
-from bingeit.models import Show, Episode, Tag
+from bingeit.models import Show, Episode, Tag, Banner
 from . import models
 from django.views.generic.detail import DetailView
 from django.db.models import Q
@@ -17,8 +17,10 @@ class HomeView(TemplateView):
 	template_name = "bingeit/home.html"
 	def get_context_data(self, **kwargs):
 		context = super().get_context_data(**kwargs)
-		user_shows = Show.objects.order_by('-cr_date')
-		context['user_shows'] = user_shows
+		home_shows = Show.objects.order_by('-cr_date')
+		home_banner = Banner.objects.order_by('-id')
+		context['home_shows'] = home_shows
+		context['home_banner'] = home_banner
 		return context
 
 class ShowListView(ListView):

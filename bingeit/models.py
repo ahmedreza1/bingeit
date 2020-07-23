@@ -31,3 +31,13 @@ class Tag(models.Model):
 	tag = models.CharField(max_length = 500)
 	def __str__(self):
 		return "%s" % self.tag
+
+
+# The Banner Model.
+class Banner(models.Model):
+	banner_title = models.CharField(max_length = 500)
+	main_img = models.ImageField(upload_to = "image\\", null=True)
+	link = models.CharField(max_length = 240, null = False, blank = False)
+	Short_description = models.CharField(max_length=240)
+	def __str__(self):
+		return "%s" % self.banner_title
