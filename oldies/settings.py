@@ -140,7 +140,7 @@ ACCOUNT_ACTIVATION_DAYS=3
 
 EMAIL_HOST= 'smtp.gmail.com'
 EMAIL_HOST_USER= 'iwewrite@gmail.com'
-EMAIL_HOST_PASSWORD= 'aurgandubhi'
+EMAIL_HOST_PASSWORD= 'boorkabander'
 EMAIL_PORT= 587
 EMAIL_USE_TLS= True
 

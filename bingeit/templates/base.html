@@ -70,15 +70,15 @@
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item right">
-            <a href="#" class="nav-link" target="_blank">
-              <button type="button" class="btn btn-main">Sign in</button>
+            <a href="/accounts/logout" class="nav-link" target="_blank">
+              <button type="button" class="btn btn-main">Sign Out</button>
             </a>
           </li>
           {% else %}
           <li class="nav-item right">
-          	<a href="#" class="nav-link" target="_blank">
-          		<button type="button" class="btn btn-main">Sign Out</button>
-          	</a>
+            <a href="/accounts/login" class="nav-link" target="_blank">
+              <button type="button" class="btn btn-main">Sign in</button>
+            </a>
           </li>
           {% endif %}
         </ul>
@@ -94,71 +94,20 @@
 
 {% block content %}
 {% endblock %}
+
 <!--Footer-->
-	<footer class="page-footer text-center text-md-left pt-4" style="background-color: #f2f2f2;">
-
-		<!--Footer Links-->
-		<div class="container-fluid">
-			<div class="row">
-
-				<!--First column-->
-				<div class="col-md-3">
-					<h5 class="text-uppercase font-weight-bold mb-4">Corona Help Finder</h5>
-					<p>The platfom is made to help people in various states of India to find help, Labs and hospitals that test for Corona or covid19 virus, check the fake news that's in circulation about the virus, donate in a decentralized way and find tips on being safe.</p>
-				</div>
-				<!--/.First column-->
-
-				<hr class="w-100 clearfix d-md-none">
-
-
-				<!--Third column-->
-				<div class="col-md-2 mx-auto">
-					<h5 class="text-uppercase font-weight-bold mb-4">Links</h5>
-					<ul class="list-unstyled">
-						<li><a href="/">Home</a></li>
-						<li><a href="/covid/tips">Tips & Advice</a></li>
-						<li><a href="/covid/info">Trustful Informations</a></li>
-						<li><a href="/covid/myprofile">Donate to Orgs</a></li>
-					</ul>
-				</div>
-
-			</div>
-		</div>
-		<!--/.Footer Links-->
-
+	<footer class="page-footer text-center text-md-left pt-4">
 		<hr>
-
-		<!--Call to action-->
-		<div class="call-to-action text-center my-4">
-			<ul class="list-unstyled list-inline">
-				{% if user.is_authenticated %}
-				<li class="list-inline-item">
-					<h5>Logout for now.</h5>
-				</li>
-				<li class="list-inline-item"><a href="/accounts/logout" class="btn btn-primary">Logout!</a></li>
-				{% else %}
-				<li class="list-inline-item">
-					<h5>Login as organization.</h5>
-				</li>
-				<li class="list-inline-item"><a href="/accounts/login" class="btn btn-primary">Log in!</a></li>
-				{% endif %}
-			</ul>
-		</div>
-		<!--/.Call to action-->
-
-		<hr>
-
 		<!--Copyright-->
 		<div class="footer-copyright py-3 text-center">
 			<div class="container-fluid">
-				© 2020 Copyright: <a href="https://about.me/ahmed_reza"> Ahmed Reza </a>
-
+				Created By: <a href="https://about.me/ahmed_reza"> Ahmed Reza </a>
 			</div>
 		</div>
 		<!--/.Copyright-->
-
 	</footer>
-	<!--/.Footer-->
+<!--/.Footer-->
+
 <script src="/static/js/choices.js"></script>
 <script src="/static/js/main.js"></script>
 <script src="https://unpkg.com/imagesloaded@4.1.4/imagesloaded.pkgd.min.js"></script>
