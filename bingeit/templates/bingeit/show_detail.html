@@ -1,17 +1,53 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<!-- Demo header-->
-<br>
-<section class="header text-center" style="padding-top: 8px;">
-    <div class="container py-4">
-        <header>
-            <h1 class="display-4">{{show.title}}</h1>
-            <hr>
-        </header>
-    </div>
+<section class="detail-page">
+	<div class="detail-banner">
+		<img src="/media/{{show.banner}}">
+		<div class="show-title">
+			<h1>{{show.title}}</h1>
+		</div>
+		<div class="show-desc">
+			<p>{{show.description}}</p>
+		</div>
+		<div class="show-cast">
+			<h2>Cast:</h2>
+			<p>{{show.cast}}</p>
+		</div>
+		<div class="show-director">
+			<h2>Director:</h2>
+			<p>{{show.director}}</p>
+		</div>
+		<div class="show-tags">
+			<ul class="tag-list">
+				{% for Tag in show_tags %}
+				<li class="tag-name">
+					{% if Tag.tag == "Adventure" %}
+					<h4><span class="badge badge-pill badge-secondary"><img src="/static/images/adventure.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Crime" %}
+					<h4><span class="badge badge-pill badge-secondary"><img src="/static/images/crime.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Mystery" %}
+					<h4><span class="badge badge-pill badge-secondary"><img src="/static/images/mystery.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Thriller" %}
+					<h4><span class="badge badge-pill badge-secondary"><img src="/static/images/action.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Action" %}
+					<h4><span class="badge badge-pill badge-secondary"><img src="/static/images/action.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Romance" %}
+					<h4><span class="badge badge-pill badge-secondary"><img src="/static/images/romantic.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Comedy" %}
+					<h4><span class="badge badge-pill badge-secondary"><img src="/static/images/comedy.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</div>
 </section>
-
-
 
 {% endblock %}

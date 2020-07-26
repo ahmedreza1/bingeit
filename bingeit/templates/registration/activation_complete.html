@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<body class="verification">
+	<section class="verification-form">
+		<div class="container-fluid py-5 px-5">
+			<h1 class="verification-title">Welcome to Bingeit</h1>
+			<p>Your account is ready, Sign In and start Beingeing.</p>
+			<a href="/accounts/login" class="nav-link" target="_blank">
+				<button type="button" class="btn btn-login">Sign in</button>
+			</a>
+		</div>
+	</section>
+</body>
+{% endblock %}

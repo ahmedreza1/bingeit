@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<body class="login">
+    <section class="login-form">
+        <form enctype="multipart/form-data" method="post">
+            {% csrf_token %}
+            <div class="container-fluid py-5 px-5">
+                <h1 class="login-title">Sign In</h1>
+                <input type="username" id="id_username" name="username" class="login-email" placeholder="Enter your Username." autocomplete="username">
+                <input type="password" id="id_password" name="password" class="login-password" placeholder="Enter your password.">
+                <input type="submit" value="Sign In" name="Login" class="btn-login">
+                <p><input type="checkbox" name="Remember Me" class="login-checkbox"> Remember me</p>
+                <p>Don't have a Bingeit account <a href="/accounts/register">Sign Up.</a></p>
+            </div>
+        </form>
+    </section>
+</body>
+{% endblock %}

@@ -34,3 +34,10 @@ class ShowListView(ListView):
 
 class ShowDetailView(DetailView):
 	model = Show
+	def get_context_data(self, **kwargs):
+		context = super().get_context_data(**kwargs)
+		show_tags = Tag.objects.filter(show_id=self.kwargs['pk']).order_by('id')
+		show_episodes = Episode.objects.filter(show_id=self.kwargs['pk']).order_by('-id')
+		context['show_tags'] = show_tags
+		context['show_episodes'] = show_episodes
+		return context

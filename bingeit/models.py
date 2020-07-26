@@ -11,6 +11,7 @@ class Show(models.Model):
 	title = models.CharField(max_length = 500)
 	description = models.TextField(null=False, blank=False)
 	poster = models.ImageField(upload_to = "image\\", null=True)
+	banner = models.ImageField(upload_to = "image\\", null=True)
 	cast = models.TextField(null=False, blank=False)
 	director = models.TextField(null=False, blank=False)
 	show_type = models.CharField(max_length = 200)
@@ -22,6 +23,7 @@ class Show(models.Model):
 class Episode(models.Model):
 	show = models.ForeignKey(Show, related_name='episodes', on_delete=CASCADE, null=True, blank=True)
 	episode = models.CharField(max_length = 800)
+	name = models.CharField(max_length = 500)
 	def __str__(self):
 		return "%s" % self.episode
 
