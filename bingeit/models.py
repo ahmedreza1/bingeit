@@ -24,6 +24,8 @@ class Episode(models.Model):
 	show = models.ForeignKey(Show, related_name='episodes', on_delete=CASCADE, null=True, blank=True)
 	episode = models.CharField(max_length = 800)
 	name = models.CharField(max_length = 500)
+	desc = models.TextField(null=False, blank=False)
+	ep_img = models.ImageField(upload_to = "image\\", null=True)
 	def __str__(self):
 		return "%s" % self.episode
 

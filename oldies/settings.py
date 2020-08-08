@@ -44,6 +44,18 @@ INSTALLED_APPS = [
     'django_user_agents',
 ]
 
+# Cache backend is optional, but recommended to speed up user agent parsing
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
+        'LOCATION': '127.0.0.1:11211',
+    }
+}
+
+# Name of cache backend to cache user agents. If it not specified default
+# cache alias will be used. Set to `None` to disable caching.
+USER_AGENTS_CACHE = 'default'
+
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
     'django.core.context_processors.debug',

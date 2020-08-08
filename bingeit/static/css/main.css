@@ -38,6 +38,30 @@ body{
   height: 42px;
   font-weight: 700;
 }
+
+.btn-episode {
+  padding: .8em 2em;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 3px solid #ffffff;
+}
+
+.btn-episode::before {
+  vertical-align: middle;
+  font-size: 1.5em;
+  padding-right: .5em;
+}
+
+.btn-outline:hover {
+  border-color: #2a9fff;
+  color: #2a9fff;
+  -webkit-box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+          box-shadow: 0px 1px 8px 0px rgba(245, 199, 0, 0.2);
+}
  /* Navbar */
  .navbar{
   background-color: rgba(0,0,0,0.1);
@@ -258,7 +282,7 @@ footer {
   margin-right: 5px;
 }
 
-.content-movie{
+.content-episode{
   margin-left: 5px;
 }
 .card{
@@ -370,7 +394,7 @@ footer {
 
 .show-title h1 {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 22px;
   font-size: 36px;
   font-weight: 700;
@@ -450,3 +474,122 @@ footer {
   }
 }
 */
+
+.episode-card {
+  background-size: contain;
+  background-position: -40% 80%;
+  background-repeat: no-repeat;
+  width: 75%;
+  max-width: 800px;
+  height: 300px;
+  display: block;
+  margin: 8vh auto;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 8px 12px 0px rgba(0, 0, 0, 0.25);
+}
+
+.color-overlay {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(42, 159, 255, 0.2)), color-stop(60%, #212120), to(#212120));
+  background: linear-gradient(to right, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
+  background-blend-mode: multiply;
+}
+
+.episode-content h1, h2, h3 {
+  font-family: "Montserrat", helvetica, arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  line-height: 1;
+  font-weight: 400;
+}
+
+.episode-content {
+  width: 40%;
+  display: block;
+  position: relative;
+  float: right;
+  padding-right: 1em;
+}
+.episode-content .episode-title {
+  color: #ffffff;
+  margin-bottom: .25em;
+  opacity: .75;
+}
+.episode-content .episode-info {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: .8em;
+  color: #2a9fff;
+  line-height: 1;
+  margin: 0;
+  font-weight: 700;
+  opacity: .5;
+}
+.episode-content .episode-header {
+  margin-bottom: 2em;
+}
+.episode-content .episode-desc {
+  font-weight: 300;
+  opacity: .84;
+  margin-bottom: 2em;
+  color: #ffffff;
+}
+
+
+
+.episode-share {
+  padding: 1em;
+  display: inline-block;
+  width: 15%;
+}
+
+.episode-share__icon i {
+  font-size: 1.2em;
+  margin-left: .5em;
+  color: #ffffff;
+  mix-blend-mode: lighten;
+  opacity: .4;
+}
+
+.episode-share__icon i:hover {
+  opacity: 1;
+  mix-blend-mode: lighten;
+}
+
+@media (max-width: 1000px) {
+  .episode-content {
+    width: 50%;
+    max-width: 95%;
+  }
+}
+@media (max-width: 800px) {
+  .episode-card {
+    width: 95%;
+    max-width: 95%;
+  }
+}
+@media (max-width: 600px) {
+  .episode-card, .episode-card:nth-child(2), .episode-card:nth-child(3) {
+    background-position: 50% 0%;
+    background-size: cover;
+    height: 400px;
+  }
+
+  .color-overlay {
+    background: -webkit-gradient(linear, left top, left bottom, from(rgba(42, 159, 255, 0.2)), color-stop(60%, #212120), to(#212120));
+    background: linear-gradient(to bottom, rgba(42, 159, 255, 0.2) 0%, #212120 60%, #212120 100%);
+  }
+
+  .episode-content {
+    margin-top: 4.2em;
+    width: 90%;
+  }
+
+  .episode-share {
+    display: block;
+    width: 100%;
+  }
+}

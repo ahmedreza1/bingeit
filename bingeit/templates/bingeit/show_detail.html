@@ -1,6 +1,93 @@
 {% extends 'base.html' %}
 {% block content %}
 
+{% if request.user_agent.is_mobile %}
+<section class="detail-page-mobile">
+	<div class="detail-banner-mobile">
+		<img src="/media/{{show.banner}}">
+		<div class="show-title-mobile">
+			<h1>{{show.title}}</h1>
+		</div>
+	</div>
+</section>
+<hr>
+<section class="detail-card-mobile">
+	<div class="card card-body" style="margin-bottom: 5px; background: linear-gradient(150deg, #f731db, #4600f1 100%); color: #ffffff;">
+		<p>{{show.description}}</p>
+	</div>
+	<div class="card card-body bg-light" style="margin-bottom: 5px; background: linear-gradient(150deg, #f731db, #4600f1 100%); color: #ffffff;">
+		<h4>Cast</h4>
+		<p>{{show.cast}}</p>
+	</div>
+
+	<div class="card card-body bg-light" style="margin-bottom: 5px; background: linear-gradient(150deg, #f731db, #4600f1 100%); color: #ffffff;">
+		<h4>Director</h4>
+		<p>{{show.director}}</p>
+	</div>
+	
+	<div class="show-tags-mobile-mobile">
+		<ul class="tag-list">
+			{% for Tag in show_tags %}
+				<li class="tag-name-mobile">
+					{% if Tag.tag == "Adventure" %}
+					<h4 style="font-size: 16px;"><span title="badge-mobile" class="badge badge-pill badge-secondary"><img src="/static/images/adventure.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Crime" %}
+					<h4 style="font-size: 16px;"><span title="badge-mobile" class="badge badge-pill badge-secondary"><img src="/static/images/crime.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Mystery" %}
+					<h4 style="font-size: 16px;"><span title="badge-mobile" class="badge badge-pill badge-secondary"><img src="/static/images/mystery.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Thriller" %}
+					<h4 style="font-size: 16px;"><span title="badge-mobile" class="badge badge-pill badge-secondary"><img src="/static/images/action.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Action" %}
+					<h4 style="font-size: 16px;"><span title="badge-mobile" class="badge badge-pill badge-secondary"><img src="/static/images/action.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Romance" %}
+					<h4 style="font-size: 16px;"><span title="badge-mobile" class="badge badge-pill badge-secondary"><img src="/static/images/romantic.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+					{% if Tag.tag == "Comedy" %}
+					<h4 style="font-size: 16px;"><span title="badge-mobile" class="badge badge-pill badge-secondary"><img src="/static/images/comedy.png">{{Tag.tag}}</span></h4>
+					{% endif %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+	</section>
+<hr>
+<section class="episode-list">
+	<h1 style="font-size: 23px; font-weight: 700; color: #ffffff;">Episodes</h1>
+	<div id="episode-card-list">
+		{% for Episode in show_episodes %}
+		<div class="panel-group">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						<a data-toggle="collapse" href="#collapse1">{{Episode.name}}</a>
+		      		</h4>
+		    	</div>
+		    	<div id="collapse1" class="panel-collapse collapse">
+		    		<div class="panel-body">
+		    			<div class="card flex-row flex-wrap">
+		    				<div class="card-header border-0">
+		    					<img src="/media/{{Episode.ep_img}}" alt="">
+		    				</div>
+		    				<div class="card-block px-2">
+		    					<p class="card-text">{{Episode.desc}}</p>
+		    					<a href="#" class="btn btn-primary">Watch Now</a>
+		    				</div>
+		    				<div class="w-100"></div>
+		    			</div>
+		    		</div>
+		    	</div>
+		    </div>
+		</div> 
+		{% endfor %}
+	</div>
+</section>
+{% else %}
+
 <section class="detail-page">
 	<div class="detail-banner">
 		<img src="/media/{{show.banner}}">
@@ -49,5 +136,141 @@
 		</div>
 	</div>
 </section>
+<hr>
+<section class="episode-list">
+	<div id="episode-card-list">
+		<!-- Card 1: Blade Runner -->
+		{% for Episode in show_episodes %}
+		<div class="episode-card">
 
+			<div class="color-overlay">
+				<img src="/media/{{Episode.ep_img}}" style="width: 55%; height: 80%; margin-top: 2%;">
+				<div class="episode-content">
+					<div class="episode-header">
+						<h1 class="episode-title">{{Episode.name}}</h1>
+					</div>
+					<p class="episode-desc">{{Episode.desc}}</p>
+					<a class="btn-episode btn-outline" href="https://www.youtube.com/embed/dpdo8t2F8cQ?autoplay=1"><img src="/static/images/play.png" style="width: 40px;height: 40px;">Watch Now</a>
+
+				</div>
+			</div>
+		</div>
+		{% endfor %}
+	</div>
+</section>
+
+{% endif %}
+
+
+<style>
+	/* Show Detail Page */
+.detail-page-mobile{
+  width: 100%;
+  height: 50%;
+}
+
+
+.detail-banner-mobile {
+  position: relative;
+  width: 100%;
+  height: 100%
+  text-align: center;
+  color: white;
+}
+.detail-banner-mobile:before {
+  position: absolute;
+  content:"";
+  background: radial-gradient(ellipse at top, rgba(0,0,0,0) 40%,rgba(0,0,0,1) 60%); 
+  background-blend-mode: multiply; width: 500px; height: 500px; 
+  z-index: 0;
+  opacity: 0.6;
+  width: 100%;
+  height: 100%
+  }
+.detail-banner-mobile img {
+  width: 100%;
+  height: 50%;
+}
+
+.show-title-mobile h1 {
+  position: absolute;
+  top: 45%;
+  left: 22px;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.show-desc-mobile {
+  color: #ffffff;
+  left: 22px;
+  font-size: 16px;
+}
+
+.show-cast-mobile h2 {
+  color: #ffffff;
+  left: 22px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.show-cast-mobile p {
+  color: #ffffff;
+  left: 22px;
+  font-size: 16px;
+}
+
+.show-director-mobile h2 {
+  color: #ffffff;
+  left: 22px;
+  font-size: 20px;
+  font-weight: 700;
+}
+.show-director-mobile p {
+  color: #ffffff;  
+  left: 22px;
+  font-size: 16px;
+}
+.show-tags-mobile{
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+span[title*='badge-mobile'] {
+	background: rgba(0,0,0,0.5);
+	font-size: 
+}
+
+.tag-list-mobile {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.tag-name-mobile {
+  float: left;
+}
+.tag-name-mobile img{
+  height: 16px;
+  width: 16px;
+  margin-left: 2px;
+  margin-right: 3px;
+}
+
+.panel-group{
+	height: 50px;
+	background: linear-gradient(150deg, #39ef74, #4600f1 100%);
+}
+.panel-title{
+	font-size: 22px;
+	font-weight: 700;
+	margin-top: 10px;
+}
+.panel-title a{
+	color: #ffffff;
+}
+</style>
 {% endblock %}
+
+
+
+
