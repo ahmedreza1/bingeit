@@ -60,7 +60,11 @@
             						<img src="/static/images/play.png" style="height: 50px; width: 50px; position: relative;">
             					</a>
             				</h3>
-            				<div class="hover-2-description mb-0"><h3 class="hover-2-title font-weight-bold mb-0"> <span class="font-weight-light"></span>{{Show.title}}</h3></div>
+            				{% if request.user_agent.is_mobile %}
+            				<div class="hover-2-description mb-0"><h3 class="hover-2-title font-weight-bold mb-0" style="font-size: 14px;"> <span class="font-weight-light"></span>{{n1.title}}</h3></div>
+            				{% else %}
+            				<div class="hover-2-description mb-0"><h3 class="hover-2-title font-weight-bold mb-0"> <span class="font-weight-light"></span>{{n1.title}}</h3></div>
+            				{% endif %}
             			</div>
             		</div>
             	</div>

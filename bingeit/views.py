@@ -29,7 +29,7 @@ class ShowListView(ListView):
 		si = self.request.GET.get("si")
 		if si == None:
 			si = ""
-		showList = Show.object.filter(Q(title__icontains = si) | Q(description__icontains = si) | Q(cast__icontains = si) | Q(director__icontains = si) | Q(show_type__icontains = si)).order_by("-id");
+		showList = Show.objects.filter(Q(title__icontains = si) | Q(description__icontains = si) | Q(cast__icontains = si) | Q(director__icontains = si) | Q(show_type__icontains = si)).order_by("-id");
 		return showList
 
 class ShowDetailView(DetailView):

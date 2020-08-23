@@ -1,62 +1,89 @@
 {% extends 'base.html' %}
 {% block content %}
-
-
-<div class="container py-5">
-  <!-- For Demo Purpose -->
-<section class="py-5 header text-center">
-    <div class="container py-4">
-        <header>
-            <h1 class="display-4">All Your work are here.</h1>
-            <p class="font-italic text-muted mb-1">All your work are shown here, keep adding posts about your work so that donars can view the awesome work you are doing with the fund raised.</p>
-            <p class="font-italic text-muted">More work you published more funds you raise to do more awesome work.
-            </p>
-        </header>
+<section class="searchform">
+  <form>
+    <div class="searchbar">
+      <input id="search" class="searchbox" placeholder="Search shows,movies,actors & directors" value="{{ request.GET.si }}" type="text" name="si" />
+      <button type="submit" value="Search" class="searchbtn"><i class="fa fa-search"></i></button>
     </div>
+  </form>
 </section>
-
-    <div class="s200">
-      <form>
-        <div class="inner-form">
-          <div class="input-field first-wrap">
-            <div class="svg-wrapper">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
-              </svg>
-            </div>
-            <input id="search" placeholder="Search your work to find easily." value="{{ request.GET.si }}" type="text" name="si" />
-          </div>
-          <div class="input-field second-wrap">
-            <button class="btn-search" type="submit" value="Search">SEARCH</button>
-          </div>
-        </div>
-        <span class="info">Search your work with title or description.</span>
-      </form>
-    </div>
-
-
-  <!-- DEMO 4 -->
-  <div class="py-5">
-    <h3 class="font-weight-bold mb-0">Edit | Delete</h3>
-    <a href="/covid/mypost/create" class="btn btn-primary">Add Work</a>
-    <p class="font-italic text-muted mb-4">You can edit or delete your published work, keep in mind deleting published work could have a negative affect on your campaign.</p>
+<div class="show-list">
+  <div class="container-fluid">
     <div class="row">
-
-
-      <!-- DEMO 4 Item-->
       {% for n1 in show_list %}
-      <div class="col-lg-6 mb-3 mb-lg-0">
+      <div class="col-lg-3 col-6 mb-3 mb-lg-0">
+        <div class="hover hover-2 text-white rounded"><img src="/media/{{n1.poster}}" alt="{{n1.title}}">
           <div class="hover-overlay"></div>
-          <div class="hover-4-content">
-            <h3 class="hover-4-title text-uppercase font-weight-bold mb-0"><span class="font-weight-light">{{n1.title}} </span></h3>
+          <div class="hover-2-content px-5 py-4">
+            <h3 class="hover-2-title text-uppercase font-weight-bold mb-0">
+              <a href="/bingeit/show/{{n1.id}}">
+                <img src="/static/images/play.png" style="height: 50px; width: 50px; position: relative;">
+              </a>
+            </h3>
+            {% if request.user_agent.is_mobile %}
+            <div class="hover-2-description mb-0"><h3 class="hover-2-title font-weight-bold mb-0" style="font-size: 14px;"> <span class="font-weight-light"></span>{{n1.title}}</h3></div>
+            {% else %}
+            <div class="hover-2-description mb-0"><h3 class="hover-2-title font-weight-bold mb-0"> <span class="font-weight-light"></span>{{n1.title}}</h3></div>
+            {% endif %}
           </div>
         </div>
-        <a class="btn btn-dark btn-sm mt-2" href='/bingeit/show/{{n1.id}}'>Read More</a>
       </div>
       {% endfor %}
-
     </div>
   </div>
-
 </div>
+
+
+
+<style>
+  .searchform{
+    padding-top: 200px;
+  }
+  .searchbar{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  left: 50%;
+  top: 15%;
+  transform: translate(-50%, -50%);
+}
+
+.searchbox{
+  transition: border .2s linear;
+  font-size: 12px;
+  width: 50%;
+  background: #f5f8fa;
+  color: #000;
+  padding: 8px 32px 8px 12px;
+  height: 22px;
+  border: 1px solid #e6ecf0;
+  border-radius: 50px;
+  outline: none;
+}
+
+.searchbox:focus{
+  transition: border .2s linear;
+  border: 2px solid orange;
+}
+
+.searchbtn{
+  position: absolute;
+  font-size: 20px;
+  color: #66757f;
+  background-color: transparent;
+  border:none;
+  right: 26%;
+  top: 0px;
+  outline: none;
+  padding: 4px;
+}
+
+h1, .twitter{
+  color: #3bdddd;
+  font-family: sans-serif;
+  font-size: 50px;
+}
+</style>
+
 {% endblock %}

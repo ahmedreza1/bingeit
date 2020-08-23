@@ -33,7 +33,7 @@
     <div class="container">
 
       <!-- Brand -->
-      <a class="navbar-brand" href="/" target="_blank">
+      <a class="navbar-brand" href="/">
         <strong>Bingeit</strong>
       </a>
 
@@ -54,32 +54,32 @@
             </a>
           </li>
           <li class="nav-item left">
-            <a class="nav-link" href="/bingeit/shows" target="_blank">Shows</a>
+            <a class="nav-link" href="/bingeit/show">Shows</a>
           </li>
           <li class="nav-item left">
-            <a class="nav-link" href="/bingeit/movies" target="_blank">Movies</a>
+            <a class="nav-link" href="/bingeit/movies">Movies</a>
           </li>
           <li class="nav-item left">
-            <a class="nav-link" href="/bingeit/categories" target="_blank">Categories</a>
+            <a class="nav-link" href="/bingeit/categories">Categories</a>
           </li>
         </ul>
 
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           <li class="nav-item right">
-            <a href="#" class="nav-link" target="_blank">
+            <a href="/show" class="nav-link">
               <i class="fa fa-search search"></i>
           </a>
           </li>
           {% if user.is_authenticated %}
           <li class="nav-item right">
-            <a href="/accounts/logout" class="nav-link" target="_blank">
+            <a href="/accounts/logout" class="nav-link">
               <button type="button" class="btn btn-main">Sign Out</button>
             </a>
           </li>
           {% else %}
           <li class="nav-item right">
-            <a href="/accounts/login" class="nav-link" target="_blank">
+            <a href="/accounts/login" class="nav-link">
               <button type="button" class="btn btn-main">Sign in</button>
             </a>
           </li>
@@ -118,8 +118,5 @@
 	</body>
 
 </html>
-
-
-
 
 
